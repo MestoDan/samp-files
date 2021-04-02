@@ -39,32 +39,32 @@ class ErrorsCog(commands.Cog):
 
         elif isinstance(error, commands.MissingRequiredArgument):
             emb = discord.Embed(title='Ошибка',description = "Отсутствует требуемый аргумент (`commands.MissingRequiredArgument`)", color=0xff0000)
-            emb.set_author(name="SAMP Files")
+            emb.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
             await ctx.send(embed = emb)
 
         elif isinstance(error, commands.MissingPermissions):
             emb = discord.Embed(title='Ошибка',description = "Отсутствует разрешение (`commands.MissingPermissions`)", color=0xff0000)
-            emb.set_author(name="SAMP Files")
+            emb.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
             await ctx.send(embed = emb)
 
         elif isinstance(error, commands.DisabledCommand):
             emb = discord.Embed(title='Ошибка',description = "Команда отключена (`commands.DisabledCommand`)", color=0xff0000)
-            emb.set_author(name="SAMP Files")
+            emb.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
             await ctx.send(embed = emb)
 
         elif isinstance(error, commands.UserInputError):
             emb = discord.Embed(title='Ошибка',description = "Команда неправильно введена (`commands.UserInputError`)", color=0xff0000)
-            emb.set_author(name="SAMP Files")
+            emb.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
             await ctx.send(embed = emb)
 
         elif isinstance(error, commands.CheckFailure):
             emb = discord.Embed(title='Ошибка',description = "Отсутствуют необходимые права (`commands.CheckFailure`)", color=0xff0000)
-            emb.set_author(name="SAMP Files")
+            emb.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
             await ctx.send(embed = emb)
 
         elif isinstance(error, commands.BadArgument):
             emb = discord.Embed(title='Ошибка',description = "Неправильный аргумент (`commands.BadArgument`)", color=0xff0000)
-            emb.set_author(name="SAMP Files")
+            emb.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
             await ctx.send(embed = emb)
 
 #==========ЗАГРУЗКА==========#
