@@ -29,7 +29,7 @@ owner_id = 431150587334361098
 intents = discord.Intents.default()
 intents.members = True
 intents.guilds = True
-client = commands.Bot(command_prefix="f?", intents=intents, activity=discord.Activity(type=discord.ActivityType.watching, name="f?help | Версия: 0.1.7 | Исправление ошибок"))
+client = commands.Bot(command_prefix="f?", intents=intents)
 client.remove_command("help")
 
 #==========COGS==========#
@@ -39,7 +39,7 @@ client.remove_command("help")
 async def load(ctx, extension):
     client.load_extension(f"cogs.{extension}")
     emb = discord.Embed(title=".load", description='Cog загружен', color=0x000000)
-    emb.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    emb.set_author(name="SAMP Files")
     await ctx.send(embed=emb)
 
 @client.command(aliases=['UNLOAD'])
@@ -47,7 +47,7 @@ async def load(ctx, extension):
 async def unload(ctx, extension):
     client.unload_extension(f"cogs.{extension}")
     emb = discord.Embed(title=".unload", description='Cog выгружен', color=0x000000)
-    emb.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    emb.set_author(name="SAMP Files")
     await ctx.send(embed=emb)
 
 @client.command(aliases=['RELOAD'])
@@ -56,7 +56,7 @@ async def reload(ctx, extension):
     client.unload_extension(f"cogs.{extension}")
     client.load_extension(f"cogs.{extension}")
     emb = discord.Embed(title=".reload" ,description='Cog перезагружен', color=0x000000)
-    emb.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    emb.set_author(name="SAMP Files")
     await ctx.send(embed=emb)
 
 for filename in os.listdir('./cogs'):
@@ -78,11 +78,13 @@ async def on_ready():
     print('Бот загружен как {0.user}'.format(client))
     print('Автор Ykpauneu#1625')
     print('---')
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"f?help | 0.1.8 | {len(client.guilds)}/100"))
 
 @client.command()
+@commands.guild_only()
 async def help(ctx):
     embed=discord.Embed(title="f?help", description="Список команд бота", color=0xffa500)
-    embed.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    embed.set_author(name="SAMP Files")
     embed.add_field(name="f?gta", value="Ссылка на GTA San Andreas", inline=True) # +
     embed.add_field(name="f?samp", value="Ссылка на SA:MP", inline=True) # +
     embed.add_field(name="f?cleo", value="Ссылка на CLEO Library", inline=True) # +
@@ -96,9 +98,10 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 @client.command()
+@commands.guild_only()
 async def addhelp(ctx):
     embed=discord.Embed(title=".addhelp", color=0xffa500)
-    embed.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    embed.set_author(name="SAMP Files")
     embed.set_thumbnail(url="https://i.imgur.com/ArmoJMR.png")
     embed.add_field(name="1.", value="Введите IP Сервера (без :port)", inline=False)
     embed.add_field(name="2.", value="Напишите port через пробел ", inline=False)
@@ -108,39 +111,45 @@ async def addhelp(ctx):
     await ctx.send(embed=embed)
 
 @client.command()
+@commands.guild_only()
 async def gta(ctx):
     embed=discord.Embed(title="f?gta", url="https://thelastgame.ru/grand-theft-auto-san-andreas/", description="Ссылка на GTA San Andreas", color=0xffa500)
-    embed.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    embed.set_author(name="SAMP Files")
     await ctx.send(embed=embed)
 
 @client.command()
+@commands.guild_only()
 async def samp(ctx):
     embed=discord.Embed(title="f?samp", url="https://sa-mp.com/download.php", description="Ссылка на SA:MP", color=0xffa500)
-    embed.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    embed.set_author(name="SAMP Files")
     await ctx.send(embed=embed)
 
 @client.command()
+@commands.guild_only()
 async def cleo(ctx):
     embed=discord.Embed(title="f?cleo", url="https://cleo.li/ru/index.html", description="Ссылка на CLEO Library", color=0xffa500)
-    embed.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    embed.set_author(name="SAMP Files")
     await ctx.send(embed=embed)
 
 @client.command()
+@commands.guild_only()
 async def asiloader(ctx):
     embed=discord.Embed(title="f?asiloader", url="https://libertycity.ru/files/gta-san-andreas/84312-silents-asi-loader-1.3.html", description="Ссылка на Asi Loader")
-    embed.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    embed.set_author(name="SAMP Files")
     await ctx.send(embed=embed)
 
 @client.command()
+@commands.guild_only()
 async def moonloader(ctx):
     embed=discord.Embed(title="f?moonloader", url="https://www.blast.hk/threads/13305/", description="Ссылка на MoonLoader")
-    embed.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    embed.set_author(name="SAMP Files")
     await ctx.send(embed=embed)
 
 @client.command()
+@commands.guild_only()
 async def sfuscs(ctx):
     embed=discord.Embed(title="f?sfuscs", url="https://www.blast.hk/threads/17/", description="Ссылка на SAMPFUNCS")
-    embed.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    embed.set_author(name="SAMP Files")
     await ctx.send(embed=embed)
 
 @client.command()
@@ -150,10 +159,11 @@ async def guilds(ctx):
         await ctx.send(f"\n{i}\n")
 
 @client.command()
-async def add(ctx, ip, port, opisanie):
-    if len(opisanie) > 20:
-        emb = discord.Embed(title='Ошибка',description = "Укажите меньше 20 символов", color=0xff0000)
-        emb.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+@commands.guild_only()
+async def add(ctx, ip, port, *, opisanie):
+    if len(opisanie) > 25:
+        emb = discord.Embed(title='Ошибка',description = "Укажите меньше 25 символов", color=0xff0000)
+        emb.set_author(name="SAMP Files")
         await ctx.send(embed = emb)
         return
     else:
@@ -162,29 +172,63 @@ async def add(ctx, ip, port, opisanie):
             await sampdb.execute('INSERT OR ROLLBACK INTO ServerList (user_added, ip, port, opisanie) VALUES (?,?,?,?)', (ctx.author.name, ip, port, opisanie))
             await sampdb.commit()
             embed=discord.Embed(title="f?add", color=0xffa500)
-            embed.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+            embed.set_author(name="SAMP Files")
             embed.add_field(name="IP:", value=ip, inline=True)
             embed.add_field(name="Port:", value=port, inline=True)
             embed.add_field(name="Описание:", value=opisanie, inline=True)
             await ctx.send(embed=embed)
         except:
-            emb = discord.Embed(title='Ошибка',description = "Ip/Описание уже есть списке", color=0xff0000)
-            emb.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+            emb = discord.Embed(title='Ошибка',description = "Ip/Описание уже есть в списке", color=0xff0000)
+            emb.set_author(name="SAMP Files")
             await ctx.send(embed = emb)
 
 @client.command()
+@commands.guild_only()
 async def slist(ctx):
     sampdb = await aiosqlite.connect("reactData.db")
     index = 0
     embed=discord.Embed(title="Список серверов:", description="", color=0xffa500)
-    embed.set_author(name="SAMP Files", url="https://samp-files.ttpoctou7pok.repl.co/")
+    embed.set_author(name="SAMP Files")
     msg = await ctx.send(embed=embed)
     async with sampdb.execute(f"SELECT user_added, ip, port, opisanie FROM ServerList") as cursor:
         async for entry in cursor:
             index += 1
             user_added, ip, port, opisanie = entry
-            embed.description += f"{index}. {user_added} | {ip}:{port} | {opisanie}\n"
+            embed.description += f"{user_added} | {ip}:{port} | {opisanie}\n"
         await msg.edit(embed=embed)
+
+@client.command()
+@commands.guild_only()
+async def delete(ctx)
+    sampdb = await aiosqlite.connect("reactData.db")
+    try:
+        await sampdb.execute("DELETE FROM ServerList WHERE user_added = ?", (ctx.author.id))
+        embed=discord.Embed(title="f?delete", color=0xffa500)
+        embed.set_author(name="SAMP Files")
+        embed.add_field(name="Пользователь:", value=ctx.author.mention, inline=True)
+        embed.add_field(name="Статус:", value="Сервер удалён из списка", inline=True)
+        await ctx.send(embed=embed)
+    except:
+        emb = discord.Embed(title='Ошибка',description = "Вы не добавляли сервер", color=0xff0000)
+        emb.set_author(name="SAMP Files")
+        await ctx.send(embed = emb)
+
+@client.command()
+@commands.guild_only()
+@commands.is_owner()
+async def deletemod(ctx, *, inputip)
+    sampdb = await aiosqlite.connect("reactData.db")
+    try:
+        await sampdb.execute("DELETE FROM ServerList WHERE ip = ?", (inputip))
+        embed=discord.Embed(title="f?delete", color=0xffa500)
+        embed.set_author(name="SAMP Files")
+        embed.add_field(name="Статус:", value="Сервер удалён из списка", inline=True)
+        await ctx.send(embed=embed)
+    except:
+        emb = discord.Embed(title='Ошибка',description = "Этого сервера нет в списке", color=0xff0000)
+        emb.set_author(name="SAMP Files")
+        await ctx.send(embed = emb)
+
 
 #==========КЛИЕНТ==========#
 
