@@ -78,7 +78,7 @@ async def on_ready():
     print('Бот загружен как {0.user}'.format(client))
     print('Автор Ykpauneu#1625')
     print('---')
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"f?help | 0.1.8 | {len(client.guilds)}/100"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"f?help | 0.1.9 | {len(client.guilds)}/100"))
 
 @client.command()
 @commands.guild_only()
@@ -93,6 +93,7 @@ async def help(ctx):
     embed.add_field(name="f?asiloader", value="Ссылка на Asi Loader", inline=True) # +
     embed.add_field(name="f?add", value="Добавляет Ваш сервер в общий список", inline=True) # +
     embed.add_field(name="f?slist", value="Список серверов", inline=True) # +
+    embed.add_field(name="f?delete", value="Удаление Вашего сервера из списка", inline=True)
     embed.add_field(name="f?addhelp", value="Помощь по команде f?add", inline=True) # +
     embed.set_footer(text="Автор бота - Ykpauneu#1625") # +
     await ctx.send(embed=embed)
