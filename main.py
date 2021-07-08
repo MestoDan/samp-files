@@ -78,7 +78,7 @@ async def on_ready():
     print('Бот загружен как {0.user}'.format(client))
     print('Автор Ykpauneu#1625')
     print('---')
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"f?help | 0.1.9 | {len(client.guilds)}/100"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"f?help | 0.2.0 | {len(client.guilds)}/100"))
 
 @client.command()
 @commands.guild_only()
@@ -200,10 +200,10 @@ async def slist(ctx):
 
 @client.command()
 @commands.guild_only()
-async def delete(ctx)
+async def delete(ctx):
     sampdb = await aiosqlite.connect("reactData.db")
     try:
-        await sampdb.execute("DELETE FROM ServerList WHERE user_added = ?", (ctx.author.id))
+        await sampdb.execute("DELETE FROM ServerList WHERE user_added = ?", (ctx.author.id,))
         embed=discord.Embed(title="f?delete", color=0xffa500)
         embed.set_author(name="SAMP Files")
         embed.add_field(name="Пользователь:", value=ctx.author.mention, inline=True)
@@ -217,10 +217,10 @@ async def delete(ctx)
 @client.command()
 @commands.guild_only()
 @commands.is_owner()
-async def deletemod(ctx, *, inputip)
+async def deletemod(ctx, *, inputip):
     sampdb = await aiosqlite.connect("reactData.db")
     try:
-        await sampdb.execute("DELETE FROM ServerList WHERE ip = ?", (inputip))
+        await sampdb.execute("DELETE FROM ServerList WHERE ip = ?", (inputip,))
         embed=discord.Embed(title="f?delete", color=0xffa500)
         embed.set_author(name="SAMP Files")
         embed.add_field(name="Статус:", value="Сервер удалён из списка", inline=True)
